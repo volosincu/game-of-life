@@ -1,0 +1,108 @@
+:root {
+    --font-color: #28357b;
+    --body-background: #ffffff;
+    --error-color-border: #ff0000;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    font-family: sans-serif;
+    background-color: #eeeeee;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+    white-space: nowrap;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    .speed-btn {
+        font-weight: bold;
+        margin-right: 5px;
+        padding: 5px 10px;
+    }
+
+    .game {
+        margin: auto;
+        margin-top: 140px;
+    }
+}
+
+.container .row {
+    white-space: nowrap;
+}
+
+/* The container */
+.cell {
+    display: inline-block;
+    position: relative;
+    padding-left: 11px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.cell input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.cellbox {
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    background-color: #cb2f15;
+}
+
+/* On mouse-over, add a grey background color */
+.cell:hover input ~ .cellbox {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cell input:checked ~ .cellbox {
+    background-color: #444444;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.cellbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.cell input:checked ~ .cellbox:after {
+    display: block;
+}
+
+.container .menu {
+    position: fixed;
+    z-index: 10;
+    height: 117px;
+    width: 100%;
+    padding-top: 20px;
+    background-color: wheat;
+    margin-left: 30px;
+    padding-left: 30px;
+
+    p {
+        padding-top: 0px;
+        margin-top: 0px;
+        margin-bottom: 3px;
+    }
+}
