@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 //loaders
+const fileLoader = require('./webpack-modules/loaders/file.js');
 const htmlLoader = require('./webpack-modules/loaders/html.js');
 const babelLoader = require('./webpack-modules/loaders/babel.js');
 const postCssLoader = require('./webpack-modules/loaders/postcss-prod.js');
@@ -20,6 +21,7 @@ module.exports = {
     },
     module: {
         rules: [
+            {...fileLoader},
             {...typeScriptLoader},
             {...babelLoader},
             {...htmlLoader},
