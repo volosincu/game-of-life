@@ -1,108 +1,234 @@
 :root {
-    --font-color: #28357b;
-    --body-background: #ffffff;
-    --error-color-border: #ff0000;
+    --brand-color-red: #DC140A;
+    --brand-color-yellow: #feb42b;
+    --brand-color-gray: #6b6b6b;
+    --brand-color-gray2: #dedede;
+    --main-background: #DC140A;
+    --secondary-background: #EEEEEE;
+}
+
+h1 {
+    font-size: 24px;
+    color: var(--brand-color-red);
+}
+
+header {
+    width: 80%;
+    margin: auto;
+    background: var(--main-background);
+    
+    .menu-btn {
+        display: none;
+        vertical-align: top;
+        padding: 12px;
+        margin-top: 25px;
+        background-color: var(--brand-color-red);
+        border: 1px solid var(--brand-color-gray2);
+        color: var(--brand-color-gray2);
+        font-size: 24px;
+    }
+    
+    .logo {
+       width: 200px;
+        height: 94px;
+        display: inline-block;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: -20px -53px;
+        background-image: url(./logo.png);
+    }
 }
 
 body {
     margin: 0;
     width: 100%;
-    font-family: sans-serif;
-    background-color: #eeeeee;
+    overflow: scroll;
+    background: var(--main-background);
+    font-family: "Roboto", Arial, sans-serif;
 }
 
 .container {
     width: 100%;
     height: 100vh;
-    overflow: scroll;
-    white-space: nowrap;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
 
-    .speed-btn {
-        font-weight: bold;
-        margin-right: 5px;
-        padding: 5px 10px;
-    }
-
-    .game {
+    .content {
         margin: auto;
-        margin-top: 140px;
+        padding: 10px;
+        background-color: #ffffff;
+    }
+
+    .content-child {
+        width: 100%;
+        display: flex;
+        
+        .menu {
+            width: 315px;
+            padding: 0px 10px;
+            background-color: var(--secondary-background);
+            
+            ul {
+                padding: 0;
+                list-style-type: none;
+                
+                li {
+                    display: flex;
+                    justify-content: flex-start;
+                    input[type="checkbox"] {
+                        height: 12px;
+                    }
+                }
+            }
+            
+            label {
+                font-weight: 700;
+            }
+            
+            .filter-label {
+                color: var(--brand-color-gray);
+                font-size: 14px;
+            }
+            
+            input {
+                height: 30px;
+                border: 1px solid var(--brand-color-gray);
+            }
+            
+             button {
+                padding: 9px;
+                border: 1px solid var(--brand-color-gray);
+                color: var(--brand-color-gray);
+            }
+        }
+
+        .hotel-list {
+            width: 100%;
+            display: inline-block;
+            list-style-type: none;
+            padding: 0px 15px 15px 30px;
+            
+
+            .hotel {
+                height: 200px;
+                border: 1px solid #eee;
+                margin-bottom: 20px;
+                cursor: pointer;
+                font-size: 16px;
+                padding: 3px;
+                box-shadow: 4px 3px 2px -4px;
+                
+                display: flex;
+                justify-content: space-between;
+                
+                label {
+                    font-weight: 700;
+                }
+
+                .img-l {
+                    height: 190px;
+                    width: 280px;
+                }
+
+                .img-m {
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+                    display: block;
+                }
+
+                .hotel-info {
+                    flex-grow: 4;
+                
+                    height: 100%;
+                    padding: 15px;
+                }
+
+                .hotel-menu-l {
+                    display: flex;
+                    justify-content: center;
+                
+                    width: 100px;
+                    height: 100%;
+                    background-color: #eee;
+                }
+                
+                .hotel-price {
+                    font-size: 24px;
+                    padding-top: 20px;
+                }
+                
+                .hotel-name {
+                    font-size: 16px;
+                }
+                
+                .hotel-room-type {
+                    color: var(--brand-color-gray);
+                    font-size: 14px;
+
+                    span {
+                        font-weight: 200;
+                    }
+                }
+            }
+        }
     }
 }
 
-.container .row {
-    white-space: nowrap;
-}
-
-/* The container */
-.cell {
+.star-rating {
+    width: 10px;
+    height: 10px;
     display: inline-block;
-    position: relative;
-    padding-left: 11px;
-    margin-bottom: 0px;
-    cursor: pointer;
-    font-size: 16px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.cell input {
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-/* Create a custom checkbox */
-.cellbox {
-    top: 0;
-    left: 0;
-    height: 16px;
-    width: 16px;
-    position: absolute;
-    background-color: #cb2f15;
-}
-
-/* On mouse-over, add a grey background color */
-.cell:hover input ~ .cellbox {
-    background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.cell input:checked ~ .cellbox {
-    background-color: #444444;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.cellbox:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the checkmark when checked */
-.cell input:checked ~ .cellbox:after {
-    display: block;
-}
-
-.container .menu {
-    position: fixed;
-    z-index: 10;
-    height: 117px;
-    width: 100%;
-    padding-top: 20px;
-    background-color: wheat;
-    margin-left: 30px;
-    padding-left: 30px;
-
-    p {
-        padding-top: 0px;
-        margin-top: 0px;
-        margin-bottom: 3px;
+    margin-right: 5px;
+    border-radius: 2px;
+    background-color: var(--brand-color-yellow);
+    
+    &.half {
+        width: 5px;
     }
 }
+
+@media (min-width: 768px) {
+
+    header {
+        width: 80%;
+        margin: auto;
+        background: var(--main-background);
+        
+        .menu-btn {
+           display: inline-block;
+        }
+     }
+    .container {
+    
+        .content-child {
+            .menu {
+                display: none;
+            }
+        }
+     }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+
+     header {
+        .menu-btn {
+           display: none;
+        }
+     }
+
+    .container {
+
+        .content {
+            width: 80%;
+        }
+        
+        .content-child {
+            .menu {
+                display: inline-block;  
+            }
+        }
+     }
+ }
+ 
+
+

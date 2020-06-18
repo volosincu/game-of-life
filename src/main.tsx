@@ -1,12 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { BoardComponent }  from './boardComponent';
+import { LayoutComponent }  from './LayoutComponent';
 import { StateProvider } from './store';
 
 const app = (
     <StateProvider>
-        <BoardComponent />
+        <LayoutComponent />
     </StateProvider>
 );
 ReactDOM.render(app, document.getElementById('root'));
