@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 //loaders
 const fileLoader = require('./webpack-modules/loaders/file.js');
@@ -29,6 +30,13 @@ module.exports = {
         ]
     },
     plugins: [
+        new BundleAnalyzerPlugin({
+            defaultSizes: "gzip",
+            openAnalyzer: false,
+            generateStatsFile: true,
+            reportFilename: "./bundleAnalyzerReport.html",
+            analyzerMode: "static"
+        }),
         new HtmlWebPackPlugin({
             template: path.resolve(__dirname, 'index.html')
         }),
